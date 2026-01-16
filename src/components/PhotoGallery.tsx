@@ -103,15 +103,15 @@ const PhotoGallery: React.FC = () => {
   };
 
   return (
-    <Box id="gallery" sx={{ py: 10, background: 'linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%)' }}>
+    <Box id="gallery" sx={{ py: { xs: 8, md: 12 }, background: 'linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%)' }}>
       <Container maxWidth="lg">
-        <Stack spacing={1} sx={{ mb: 8 }}>
+        <Stack spacing={2} sx={{ mb: 10 }}>
           <Typography
             level="h2"
             sx={{
               textAlign: 'center',
-              fontSize: { xs: '32px', md: '44px' },
-              fontWeight: 'bold',
+              fontSize: { xs: '32px', md: '48px' },
+              fontWeight: 800,
               color: '#0f172a',
               letterSpacing: '-0.02em',
             }}
@@ -136,12 +136,12 @@ const PhotoGallery: React.FC = () => {
         {/* Category Filter */}
         <Stack
           direction="row"
-          spacing={2}
+          spacing={1.5}
           sx={{
-            mb: 8,
+            mb: 10,
             justifyContent: 'center',
             flexWrap: 'wrap',
-            gap: 2,
+            gap: 1.5,
           }}
         >
           {categories.map((category) => (
@@ -157,14 +157,19 @@ const PhotoGallery: React.FC = () => {
                     : 'white',
                 color: selectedCategory === category ? 'white' : '#1e3a8a',
                 borderColor: '#3b82f6',
+                borderWidth: selectedCategory === category ? 0 : 2,
                 fontWeight: '600',
-                fontSize: '14px',
-                px: 2,
-                py: 1.2,
-                transition: 'all 0.3s ease',
+                fontSize: '13px',
+                px: 2.5,
+                py: 1.3,
+                transition: 'all 0.25s ease',
+                outline: 'none',
+                '&:focus': {
+                  outline: 'none',
+                },
                 '&:hover': {
-                  transform: 'translateY(-2px)',
-                  boxShadow: selectedCategory === category ? '0 8px 20px rgba(30, 58, 138, 0.3)' : '0 4px 12px rgba(30, 58, 138, 0.15)',
+                  transform: 'translateY(-3px)',
+                  boxShadow: selectedCategory === category ? '0 10px 25px rgba(30, 58, 138, 0.3)' : '0 6px 16px rgba(30, 58, 138, 0.12)',
                 },
               }}
             >
@@ -181,8 +186,9 @@ const PhotoGallery: React.FC = () => {
               xs: '1fr',
               sm: 'repeat(2, 1fr)',
               md: 'repeat(3, 1fr)',
+              lg: 'repeat(3, 1fr)',
             },
-            gap: 4,
+            gap: { xs: 3, md: 4 },
             mb: 4,
           }}
         >
@@ -193,14 +199,22 @@ const PhotoGallery: React.FC = () => {
               sx={{
                 cursor: 'pointer',
                 overflow: 'hidden',
-                height: '320px',
-                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                height: { xs: '280px', md: '340px' },
+                transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
                 border: 'none',
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+                boxShadow: '0 8px 24px rgba(0, 0, 0, 0.08)',
                 position: 'relative',
+                borderRadius: '12px',
+                outline: 'none',
+                '&:focus': {
+                  outline: 'none',
+                },
                 '&:hover': {
-                  transform: 'translateY(-12px) scale(1.02)',
-                  boxShadow: '0 20px 50px rgba(30, 58, 138, 0.25)',
+                  transform: 'translateY(-16px)',
+                  boxShadow: '0 24px 48px rgba(30, 58, 138, 0.18)',
+                  '& img': {
+                    transform: 'scale(1.08)',
+                  },
                 },
               }}
             >
@@ -212,7 +226,7 @@ const PhotoGallery: React.FC = () => {
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  transition: 'transform 0.4s ease',
+                  transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
               />
               <Box
@@ -222,21 +236,21 @@ const PhotoGallery: React.FC = () => {
                   left: 0,
                   right: 0,
                   top: 0,
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 40%, transparent 100%)',
+                  background: 'linear-gradient(to top, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.5) 40%, transparent 100%)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'flex-end',
-                  p: 3,
+                  p: { xs: 2.5, md: 3 },
+                  gap: 0.5,
                 }}
               >
                 <Typography 
                   level="title-lg" 
                   sx={{ 
-                    fontWeight: 'bold', 
-                    mb: 0.5,
+                    fontWeight: '700', 
                     color: 'white',
-                    fontSize: '18px',
-                    textShadow: '0 2px 4px rgba(0,0,0,0.5)',
+                    fontSize: { xs: '16px', md: '18px' },
+                    letterSpacing: '-0.3px',
                   }}
                 >
                   {image.title}
@@ -245,9 +259,10 @@ const PhotoGallery: React.FC = () => {
                   level="body-sm" 
                   sx={{ 
                     color: '#fbbf24',
-                    fontSize: '14px',
+                    fontSize: '12px',
                     fontWeight: '600',
-                    textShadow: '0 1px 2px rgba(0,0,0,0.5)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.5px',
                   }}
                 >
                   {image.category}
@@ -266,102 +281,203 @@ const PhotoGallery: React.FC = () => {
             justifyContent: 'center',
             alignItems: 'center',
             zIndex: 1000,
+            background: 'rgba(15, 23, 42, 0.95)',
           }}
         >
           <Box
             sx={{
               position: 'relative',
-              width: { xs: '95%', md: '85%' },
-              maxWidth: '900px',
-              maxHeight: '90vh',
-              background: 'white',
-              borderRadius: '16px',
-              overflow: 'hidden',
-              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
+              width: { xs: '100%', md: '90%' },
+              maxWidth: '1200px',
+              height: '100vh',
+              display: 'flex',
+              flexDirection: 'column',
             }}
           >
-            <ModalClose
-              variant="plain"
-              sx={{
-                position: 'absolute',
-                right: 16,
-                top: 16,
-                zIndex: 10,
-                background: 'rgba(0,0,0,0.6)',
-                color: 'white',
-                borderRadius: '8px',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  background: 'rgba(0,0,0,0.8)',
-                  transform: 'scale(1.1)',
-                },
-              }}
-            />
-
             {selectedImage && (
               <>
+                {/* Top Bar */}
                 <Box
-                  component="img"
-                  src={selectedImage.image}
-                  alt={selectedImage.title}
                   sx={{
-                    width: '100%',
-                    height: 'auto',
-                    maxHeight: '70vh',
-                    objectFit: 'cover',
-                    display: 'block',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    mb: 2,
+                    px: { xs: 2, md: 0 },
                   }}
-                />
-
-                <Box sx={{ p: 4, background: 'linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%)' }}>
-                  <Typography level="h3" sx={{ color: '#1e3a8a', mb: 1, fontWeight: 'bold' }}>
-                    {selectedImage.title}
-                  </Typography>
-                  <Typography level="body-sm" sx={{ color: '#64748b', mb: 3, fontSize: '14px' }}>
-                    Category: {selectedImage.category}
-                  </Typography>
-
-                  <Stack direction="row" spacing={2} justifyContent="center">
-                    <Button
-                      onClick={handlePrevious}
-                      variant="solid"
-                      sx={{
-                        background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
-                        color: 'white',
-                        fontWeight: '600',
-                        transition: 'all 0.3s ease',
-                        '&:hover': {
-                          transform: 'translateY(-2px)',
-                          boxShadow: '0 8px 20px rgba(30, 58, 138, 0.3)',
-                        },
+                >
+                  <Box>
+                    <Typography 
+                      level="h4" 
+                      sx={{ 
+                        color: 'white', 
+                        fontWeight: '700',
+                        fontSize: { xs: '18px', md: '24px' },
+                        mb: 0.5,
                       }}
-                      startDecorator={<ChevronLeft />}
                     >
-                      Previous
-                    </Button>
-
-                    <Typography level="body-sm" sx={{ alignSelf: 'center', color: '#64748b', fontWeight: '600' }}>
-                      {filteredImages.findIndex((img) => img.id === selectedImage.id) + 1} of {filteredImages.length}
+                      {selectedImage.title}
                     </Typography>
+                    <Typography 
+                      level="body-sm" 
+                      sx={{ 
+                        color: '#94a3b8',
+                        fontSize: { xs: '13px', md: '14px' },
+                      }}
+                    >
+                      {filteredImages.findIndex((img) => img.id === selectedImage.id) + 1} of {filteredImages.length} • {selectedImage.category}
+                    </Typography>
+                  </Box>
+                  
+                  <ModalClose
+                    variant="plain"
+                    sx={{
+                      position: 'static',
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      color: 'white',
+                      borderRadius: '8px',
+                      width: '40px',
+                      height: '40px',
+                      transition: 'all 0.2s ease',
+                      outline: 'none',
+                      '&:focus': {
+                        outline: 'none',
+                      },
+                      '&:hover': {
+                        background: 'rgba(255, 255, 255, 0.2)',
+                      },
+                    }}
+                  />
+                </Box>
 
-                    <Button
-                      onClick={handleNext}
-                      variant="solid"
+                {/* Image Container */}
+                <Box
+                  sx={{
+                    flex: 1,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    position: 'relative',
+                    mb: 2,
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={selectedImage.image}
+                    alt={selectedImage.title}
+                    sx={{
+                      maxWidth: '100%',
+                      maxHeight: '75vh',
+                      objectFit: 'contain',
+                      borderRadius: '4px',
+                    }}
+                  />
+
+                  {/* Previous Button */}
+                  <Button
+                    onClick={handlePrevious}
+                    variant="solid"
+                    sx={{
+                      position: 'absolute',
+                      left: { xs: 8, md: 16 },
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      background: 'rgba(255, 255, 255, 0.95)',
+                      color: '#1e3a8a',
+                      minWidth: { xs: '40px', md: '48px' },
+                      minHeight: { xs: '40px', md: '48px' },
+                      borderRadius: '8px',
+                      padding: 0,
+                      transition: 'all 0.2s ease',
+                      outline: 'none',
+                      '&:focus': {
+                        outline: 'none',
+                      },
+                      '&:hover': {
+                        background: 'white',
+                        transform: 'translateY(-50%) scale(1.05)',
+                      },
+                    }}
+                  >
+                    <ChevronLeft sx={{ fontSize: { xs: 24, md: 28 } }} />
+                  </Button>
+
+                  {/* Next Button */}
+                  <Button
+                    onClick={handleNext}
+                    variant="solid"
+                    sx={{
+                      position: 'absolute',
+                      right: { xs: 8, md: 16 },
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      background: 'rgba(255, 255, 255, 0.95)',
+                      color: '#1e3a8a',
+                      minWidth: { xs: '40px', md: '48px' },
+                      minHeight: { xs: '40px', md: '48px' },
+                      borderRadius: '8px',
+                      padding: 0,
+                      transition: 'all 0.2s ease',
+                      outline: 'none',
+                      '&:focus': {
+                        outline: 'none',
+                      },
+                      '&:hover': {
+                        background: 'white',
+                        transform: 'translateY(-50%) scale(1.05)',
+                      },
+                    }}
+                  >
+                    <ChevronRight sx={{ fontSize: { xs: 24, md: 28 } }} />
+                  </Button>
+                </Box>
+
+                {/* Thumbnail Strip */}
+                <Box
+                  sx={{
+                    display: 'flex',
+                    gap: { xs: 1, md: 1.5 },
+                    flexWrap: 'wrap',
+                    justifyContent: 'center',
+                    px: { xs: 2, md: 0 },
+                    pb: { xs: 2, md: 3 },
+                  }}
+                >
+                  {filteredImages.map((image) => (
+                    <Box
+                      key={image.id}
+                      onClick={() => setSelectedImage(image)}
                       sx={{
-                        background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
-                        color: 'white',
-                        fontWeight: '600',
-                        transition: 'all 0.3s ease',
+                        width: { xs: '70px', sm: '80px', md: '90px' },
+                        height: { xs: '50px', sm: '60px', md: '65px' },
+                        borderRadius: '6px',
+                        overflow: 'hidden',
+                        cursor: 'pointer',
+                        border: selectedImage.id === image.id ? '3px solid white' : '3px solid transparent',
+                        opacity: selectedImage.id === image.id ? 1 : 0.5,
+                        transition: 'all 0.2s ease',
+                        outline: 'none',
+                        '&:focus': {
+                          outline: 'none',
+                        },
                         '&:hover': {
-                          transform: 'translateY(-2px)',
-                          boxShadow: '0 8px 20px rgba(30, 58, 138, 0.3)',
+                          opacity: 1,
+                          transform: 'scale(1.05)',
                         },
                       }}
-                      endDecorator={<ChevronRight />}
                     >
-                      Next
-                    </Button>
-                  </Stack>
+                      <Box
+                        component="img"
+                        src={image.image}
+                        alt={image.title}
+                        sx={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                        }}
+                      />
+                    </Box>
+                  ))}
                 </Box>
               </>
             )}

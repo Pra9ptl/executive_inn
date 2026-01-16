@@ -4,6 +4,36 @@
   box-sizing: border-box;
 }
 
+*:focus,
+*:focus-visible,
+*:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+button:focus,
+button:focus-visible,
+button:active,
+a:focus,
+a:focus-visible,
+a:active,
+input:focus,
+input:focus-visible,
+input:active,
+textarea:focus,
+textarea:focus-visible,
+textarea:active,
+select:focus,
+select:focus-visible,
+select:active,
+div:focus,
+div:focus-visible,
+div:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
