@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, Hotel, Mail, Phone } from '@mui/icons-material';
+import { ChevronLeft, ChevronRight, Hotel, LocationOn, Phone } from '@mui/icons-material';
 import { Box, Container, IconButton, Stack, Typography } from '@mui/joy';
 import React, { useEffect, useState } from 'react';
 import img1 from '../assets/executive-inn-baker-la.webp';
@@ -229,15 +229,22 @@ const Header: React.FC = () => {
                 direction="row" 
                 alignItems="center" 
                 spacing={2.5}
+                onClick={() => window.open('https://www.google.com/maps/place/430+Main+St,+Baker,+LA+70714/@30.58027,-91.1719058,17z/data=!3m1!4b1!4m6!3m5!1s0x86269ef7562c04e1:0x30a201a78a8825f3!8m2!3d30.5802654!4d-91.1693309!16s%2Fg%2F11c885hkxk?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D', '_blank')}
                 sx={{
                   background: 'rgba(255, 255, 255, 0.08)',
                   borderRadius: '10px',
                   p: 2.5,
                   backdropFilter: 'blur(8px)',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    background: 'rgba(255, 255, 255, 0.12)',
+                    transform: 'translateY(-2px)',
+                  },
                 }}
               >
-                <Mail sx={{ fontSize: 28, color: '#fbbf24', flexShrink: 0 }} />
+                <LocationOn sx={{ fontSize: 28, color: '#fbbf24', flexShrink: 0 }} />
                 <Box>
                   <Typography 
                     level="body-sm" 
