@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Box, CssVarsProvider } from '@mui/joy';
+import CssBaseline from '@mui/joy/CssBaseline';
+import Header from './components/Header';
+import Navigation from './components/Navigation';
+import PhotoGallery from './components/PhotoGallery';
+import Amenities from './components/Amenities';
+import ThingsToDo from './components/ThingsToDo';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import AboutUs from './components/AboutUs';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CssVarsProvider>
+      <CssBaseline />
+      <Box sx={{ background: '#ffffff' }}>
+        <Navigation />
+        <Header />
+        <AboutUs />
+        <PhotoGallery />
+        <Amenities />
+        <ThingsToDo />
+        <Contact />
+        <Footer />
+      </Box>
+    </CssVarsProvider>
   );
 }
 

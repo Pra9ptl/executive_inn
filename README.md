@@ -1,46 +1,184 @@
-# Getting Started with Create React App
+# Executive Inn and Suites Baker - Hotel Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive hotel website built with React, TypeScript, and MUI Joy UI. This website showcases a beautiful photo gallery, room types, amenities, and contact information for the Executive Inn and Suites in Baker, Louisiana.
 
-## Available Scripts
+## 🎯 Features
 
-In the project directory, you can run:
+- **Modern Design**: Built with the latest design patterns and MUI Joy UI framework
+- **Responsive Layout**: Fully responsive design that works on desktop, tablet, and mobile devices
+- **Photo Gallery**: Interactive photo gallery with category filtering and modal view
+- **Room Types**: Showcase different room categories with descriptions and features
+- **Hotel Amenities**: Display of all available hotel amenities with icons and descriptions
+- **Hotel Information**: Check-in/check-out times, pet policy, and hotel information
+- **Contact Form**: Functional contact form with email, phone, and address information
+- **Navigation**: Sticky navigation bar with smooth scrolling
+- **Modern UI Components**: Uses MUI Joy UI for consistent and beautiful UI components
 
-### `npm start`
+## 📋 Pages & Sections
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. **Navigation Bar** - Sticky header with smooth scroll links
+2. **Hero Header** - Eye-catching header with hotel name and contact info
+3. **Photo Gallery** - Filterable image gallery with modal view and navigation
+4. **Room Types** - Displays different room categories (Standard, Deluxe, Suite)
+5. **Hotel Amenities** - Grid of amenities with icons (WiFi, Parking, Fitness, etc.)
+6. **Hotel Information** - Check-in/out times, policies, and about section
+7. **Contact Section** - Contact form and hotel contact details
+8. **Footer** - Social links, quick links, and copyright information
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🚀 Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v14 or higher)
+- npm or yarn package manager
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Navigate to the project directory:
+```bash
+cd executive-inn
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Start the development server:
+```bash
+npm start
+```
 
-### `npm run eject`
+4. Open your browser and navigate to:
+```
+http://localhost:3000
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 📦 Dependencies
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **React**: ^19.2.0 - JavaScript library for building user interfaces
+- **TypeScript**: ^4.9.5 - Typed superset of JavaScript
+- **MUI Joy UI**: ^1.0.0+ - Beautiful React component library
+- **MUI Icons**: Latest version - Material Design icons
+- **Emotion**: ^11.x - CSS-in-JS styling solution
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🏗️ Project Structure
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+src/
+├── components/
+│   ├── Header.tsx           # Hero header section
+│   ├── Navigation.tsx       # Navigation bar with menu
+│   ├── PhotoGallery.tsx     # Interactive photo gallery
+│   ├── RoomTypes.tsx        # Room types showcase
+│   ├── Amenities.tsx        # Hotel amenities section
+│   ├── HotelInfo.tsx        # Hotel information section
+│   ├── Contact.tsx          # Contact form and info
+│   └── Footer.tsx           # Footer section
+├── App.tsx                  # Main app component
+├── App.css                  # Global app styles
+├── index.css                # Global styles
+└── index.tsx                # React entry point
+```
 
-## Learn More
+## 🎨 Design Highlights
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Color Scheme**: Professional blue gradient (#1e3a8a to #3b82f6)
+- **Typography**: Modern Inter font family
+- **Spacing**: Consistent use of MUI spacing system
+- **Cards**: Hover effects and smooth transitions
+- **Icons**: Material Design icons for visual appeal
+- **Grid System**: Responsive grid layout using MUI Grid
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📱 Responsive Design
+
+The website is fully responsive with breakpoints at:
+- **xs**: 0px (mobile)
+- **sm**: 600px (tablet)
+- **md**: 900px (laptop)
+- **lg**: 1200px (desktop)
+
+## 🖼️ Gallery Features
+
+- Filter by category (Exterior, Lobby, Rooms, Service, Facilities, Amenities, Dining)
+- Modal view with full-size images
+- Previous/Next navigation in modal
+- Smooth transitions and hover effects
+- Placeholder images from Unsplash
+
+## 🔧 Available Scripts
+
+```bash
+# Start development server
+npm start
+
+# Build for production
+npm run build
+
+# Run tests
+npm test
+
+# Eject configuration (one-way operation)
+npm eject
+```
+
+## 🎯 Customization
+
+### Update Hotel Information
+Edit the following files to customize:
+- `src/components/Header.tsx` - Hotel name, phone, address
+- `src/components/HotelInfo.tsx` - Check-in/out times, policies
+- `src/components/Footer.tsx` - Contact information and links
+
+### Update Gallery Images
+Replace image URLs in `src/components/PhotoGallery.tsx`:
+```typescript
+{
+  id: 1,
+  title: 'Your Title',
+  category: 'Category',
+  image: 'YOUR_IMAGE_URL',
+}
+```
+
+### Change Color Scheme
+Update the color gradient in component sx props:
+```typescript
+background: 'linear-gradient(135deg, #YOUR_COLOR1 0%, #YOUR_COLOR2 100%)'
+```
+
+## 🌐 Deployment
+
+To build for production:
+```bash
+npm run build
+```
+
+This creates an optimized production build in the `build/` folder that can be deployed to:
+- Netlify
+- Vercel
+- GitHub Pages
+- Any static hosting service
+
+## 📄 License
+
+This project is private and proprietary to Executive Inn and Suites Baker.
+
+## 📞 Contact
+
+For questions or support, contact:
+- Phone: +1 (225) 771-1123
+- Address: 430 Main St, Baker, Louisiana 70714, USA
+- Email: info@executivebakerla.com
+
+## 🎓 Technologies Used
+
+- React 19.2 with TypeScript
+- MUI Joy UI - Modern React component library
+- Material Design Icons
+- Emotion CSS-in-JS
+- React Scripts with Webpack
+
+---
+
+**Built with ❤️ using modern web technologies**
