@@ -119,7 +119,7 @@ const Amenities: React.FC = () => {
 
         <Grid container spacing={{ xs: 2, md: 3 }} sx={{ justifyContent: 'center' }}>
           {amenities.map((amenity) => (
-            <Grid key={amenity.id} xs={12} sm={6} md={3}>
+            <Grid key={amenity.id} xs={6} sm={6} md={3}>
               <Card
                 className="amenities-card"
                 role="article"
