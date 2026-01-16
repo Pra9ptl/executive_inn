@@ -1,28 +1,14 @@
 import React from 'react';
 import { Box, Container, Typography, Stack, Grid, Link, Divider } from '@mui/joy';
-import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    { icon: <Facebook sx={{ fontSize: 18, color: '#fbbf24' }} />, label: 'Facebook', href: '#' },
-    { icon: <Twitter sx={{ fontSize: 18, color: '#fbbf24' }} />, label: 'Twitter', href: '#' },
-    { icon: <Instagram sx={{ fontSize: 18, color: '#fbbf24' }} />, label: 'Instagram', href: '#' },
-    { icon: <LinkedIn sx={{ fontSize: 18, color: '#fbbf24' }} />, label: 'LinkedIn', href: '#' },
-  ];
 
   const quickLinks = [
     { label: 'About', href: '#about' },
     { label: 'Amenities', href: '#amenities' },
     { label: 'Things To Do', href: '#things-to-do' },
     { label: 'Contact', href: '#contact' },
-  ];
-
-  const policyLinks = [
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Accessibility', href: '#' },
   ];
 
   return (

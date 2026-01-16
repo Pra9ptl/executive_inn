@@ -6,7 +6,6 @@ import {
   LocalLaundryService,
   LocalParking,
   Pets,
-  SmokeFree,
   Wifi,
 } from '@mui/icons-material';
 import { Box, Card, Container, Grid, Typography } from '@mui/joy';
