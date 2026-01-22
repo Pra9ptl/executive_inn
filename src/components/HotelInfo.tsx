@@ -31,15 +31,15 @@ const HotelInfo: React.FC = () => {
                   <AccessTime sx={{ color: '#fbbf24', fontSize: 28, mt: 0.5, flexShrink: 0 }} />
                   <Box>
                     <Typography
-                      level="title-md"
-                      sx={{ color: '#0f172a', fontWeight: 'bold', mb: 1 }}
+                      level="title-sm"
+                      sx={{ color: '#0f172a', fontWeight: 'bold', mb: 1, fontSize: '14px' }}
                     >
                       Check-In & Check-Out
                     </Typography>
-                    <Typography level="body-sm" sx={{ color: '#64748b', fontSize: '14px' }}>
+                    <Typography level="body-xs" sx={{ color: '#64748b', fontSize: '12px' }}>
                       <strong>Check-In:</strong> 3:00 PM
                     </Typography>
-                    <Typography level="body-sm" sx={{ color: '#64748b', fontSize: '14px' }}>
+                    <Typography level="body-xs" sx={{ color: '#64748b', fontSize: '12px' }}>
                       <strong>Check-Out:</strong> 11:00 AM
                     </Typography>
                   </Box>
@@ -49,15 +49,15 @@ const HotelInfo: React.FC = () => {
                   <CheckCircle sx={{ color: '#fbbf24', fontSize: 28, mt: 0.5, flexShrink: 0 }} />
                   <Box>
                     <Typography
-                      level="title-md"
-                      sx={{ color: '#0f172a', fontWeight: 'bold', mb: 1 }}
+                      level="title-sm"
+                      sx={{ color: '#0f172a', fontWeight: 'bold', mb: 1, fontSize: '14px' }}
                     >
                       Children & Rollaway Beds
                     </Typography>
-                    <Typography level="body-sm" sx={{ color: '#64748b', fontSize: '14px' }}>
+                    <Typography level="body-xs" sx={{ color: '#64748b', fontSize: '12px' }}>
                       Children of any age are welcome
                     </Typography>
-                    <Typography level="body-sm" sx={{ color: '#64748b', fontSize: '14px' }}>
+                    <Typography level="body-xs" sx={{ color: '#64748b', fontSize: '12px' }}>
                       Rollaway/extra beds are not available
                     </Typography>
                   </Box>
@@ -67,13 +67,13 @@ const HotelInfo: React.FC = () => {
                   <Info sx={{ color: '#fbbf24', fontSize: 28, mt: 0.5, flexShrink: 0 }} />
                   <Box>
                     <Typography
-                      level="title-md"
-                      sx={{ color: '#0f172a', fontWeight: 'bold', mb: 1 }}
+                      level="title-sm"
+                      sx={{ color: '#0f172a', fontWeight: 'bold', mb: 1, fontSize: '14px' }}
                     >
                       Pet Policy
                     </Typography>
-                    <Typography level="body-sm" sx={{ color: '#64748b', fontSize: '14px' }}>
-                      Pets are allowed - $12.00 per pet per night
+                    <Typography level="body-xs" sx={{ color: '#64748b', fontSize: '12px' }}>
+                      Pets are allowed - $15.00 per pet per night
                     </Typography>
                   </Box>
                 </Stack>
@@ -92,12 +92,12 @@ const HotelInfo: React.FC = () => {
                 }}
               >
                 <Typography
-                  level="title-lg"
-                  sx={{ color: '#0f172a', fontWeight: 'bold', mb: 2, fontSize: '20px' }}
+                  level="title-md"
+                  sx={{ color: '#0f172a', fontWeight: 'bold', mb: 2, fontSize: '18px' }}
                 >
                   About Executive Inn and Suites
                 </Typography>
-                <Typography level="body-md" sx={{ color: '#64748b', mb: 3, lineHeight: 1.7, fontSize: '15px' }}>
+                <Typography level="body-sm" sx={{ color: '#64748b', mb: 3, lineHeight: 1.7, fontSize: '14px' }}>
                   Located in the heart of Baker, Louisiana, Executive Inn and Suites offers
                   comfortable, affordable accommodation perfect for business travelers and leisure
                   guests alike. Our convenient location near Louisiana State University and just
@@ -114,31 +114,31 @@ const HotelInfo: React.FC = () => {
                 }}
               >
                 <Typography
-                  level="title-md"
-                  sx={{ color: '#0f172a', fontWeight: 'bold', mb: 3, fontSize: '16px' }}
+                  level="title-sm"
+                  sx={{ color: '#0f172a', fontWeight: 'bold', mb: 3, fontSize: '15px' }}
                 >
                   Why Choose Us?
                 </Typography>
                 <Stack spacing={1.5}>
                   <Stack direction="row" spacing={2} alignItems="flex-start">
                     <Box sx={{ width: 6, height: 6, borderRadius: '50%', background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)', mt: 1, flexShrink: 0 }} />
-                    <Typography level="body-sm" sx={{ color: '#475569', fontSize: '14px' }}>Affordable luxury accommodations</Typography>
+                    <Typography level="body-xs" sx={{ color: '#475569', fontSize: '13px' }}>Affordable luxury accommodations</Typography>
                   </Stack>
                   <Stack direction="row" spacing={2} alignItems="flex-start">
                     <Box sx={{ width: 6, height: 6, borderRadius: '50%', background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)', mt: 1, flexShrink: 0 }} />
-                    <Typography level="body-sm" sx={{ color: '#475569', fontSize: '14px' }}>Convenient location near attractions and universities</Typography>
+                    <Typography level="body-xs" sx={{ color: '#475569', fontSize: '13px' }}>Convenient location near attractions and universities</Typography>
                   </Stack>
                   <Stack direction="row" spacing={2} alignItems="flex-start">
                     <Box sx={{ width: 6, height: 6, borderRadius: '50%', background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)', mt: 1, flexShrink: 0 }} />
-                    <Typography level="body-sm" sx={{ color: '#475569', fontSize: '14px' }}>Friendly and attentive staff</Typography>
+                    <Typography level="body-xs" sx={{ color: '#475569', fontSize: '13px' }}>Friendly and attentive staff</Typography>
                   </Stack>
                   <Stack direction="row" spacing={2} alignItems="flex-start">
                     <Box sx={{ width: 6, height: 6, borderRadius: '50%', background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)', mt: 1, flexShrink: 0 }} />
-                    <Typography level="body-sm" sx={{ color: '#475569', fontSize: '14px' }}>Complimentary amenities and services</Typography>
+                    <Typography level="body-xs" sx={{ color: '#475569', fontSize: '13px' }}>Complimentary amenities and services</Typography>
                   </Stack>
                   <Stack direction="row" spacing={2} alignItems="flex-start">
                     <Box sx={{ width: 6, height: 6, borderRadius: '50%', background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)', mt: 1, flexShrink: 0 }} />
-                    <Typography level="body-sm" sx={{ color: '#475569', fontSize: '14px' }}>Clean and well-maintained facilities</Typography>
+                    <Typography level="body-xs" sx={{ color: '#475569', fontSize: '13px' }}>Clean and well-maintained facilities</Typography>
                   </Stack>
                 </Stack>
               </Card>

@@ -1,8 +1,6 @@
 import {
   Accessible,
   AccessTime,
-  Business,
-  LocalCafe,
   LocalLaundryService,
   LocalParking,
   Pets,
@@ -39,30 +37,18 @@ const amenities: Amenity[] = [
   },
   {
     id: 3,
-    icon: <LocalCafe sx={{ fontSize: 48, color: '#fbbf24' }} />,
-    title: 'Free Breakfast',
-    description: 'Start your day with our complimentary continental breakfast',
+    icon: <Pets sx={{ fontSize: 48, color: '#fbbf24' }} />,
+    title: 'Pet Friendly',
+    description: 'Pets are allowed - $15.00 per pet per night',
   },
   {
     id: 4,
-    icon: <Business sx={{ fontSize: 48, color: '#fbbf24' }} />,
-    title: 'Business Centre',
-    description: 'Business centre with internet access',
-  },
-  {
-    id: 5,
-    icon: <Pets sx={{ fontSize: 48, color: '#fbbf24' }} />,
-    title: 'Pet Friendly',
-    description: 'Pets are allowed - $12.00 per pet per night',
-  },
-  {
-    id: 6,
     icon: <AccessTime sx={{ fontSize: 48, color: '#fbbf24' }} />,
     title: '24-Hour Front Desk',
     description: 'Round-the-clock service for all your needs',
   },
   {
-    id: 7,
+    id: 5,
     icon: <LocalLaundryService sx={{ fontSize: 48, color: '#fbbf24' }} />,
     title: 'Laundry Service',
     description: 'Self-serve laundry and laundry service available',
@@ -117,9 +103,9 @@ const Amenities: React.FC = () => {
           </Typography>
         </Box>
 
-        <Grid container spacing={{ xs: 2, md: 3 }} sx={{ justifyContent: 'center' }}>
+        <Grid container spacing={{ xs: 2, md: 2.5 }} sx={{ justifyContent: 'center' }}>
           {amenities.map((amenity) => (
-            <Grid key={amenity.id} xs={6} sm={6} md={3}>
+            <Grid key={amenity.id} xs={6} sm={4} md={3} lg={2}>
               <Card
                 className="amenities-card"
                 role="article"
@@ -130,31 +116,52 @@ const Amenities: React.FC = () => {
                   flexDirection: 'column',
                   alignItems: 'center',
                   textAlign: 'center',
-                  p: { xs: 1, md: 2 },
-                  transition: 'all 0.32s cubic-bezier(0.4, 0, 0.2, 1)',
-                  border: 'none',
-                  boxShadow: '0 6px 18px rgba(2,6,23,0.06)',
-                  background: 'white',
-                  borderRadius: 10,
+                  p: { xs: 2, md: 2.5 },
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                  border: '1px solid rgba(148, 163, 184, 0.1)',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                  background: 'linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)',
+                  borderRadius: '16px',
+                  cursor: 'pointer',
+                  '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '3px',
+                    background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4)',
+                    borderRadius: '16px 16px 0 0',
+                  },
                   '&:hover': {
-                    boxShadow: '0 20px 50px rgba(30, 58, 138, 0.12)',
-                    transform: 'translateY(-6px)',
+                    transform: 'translateY(-6px) scale(1.02)',
+                    boxShadow: '0 20px 40px -12px rgba(0, 0, 0, 0.2)',
+                    borderColor: 'rgba(59, 130, 246, 0.3)',
+                    '& .amenity-icon': {
+                      transform: 'scale(1.1) rotate(5deg)',
+                      background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
+                    },
                   },
                 }}
               >
-                {/* Icon Container with gradient background */}
+                {/* Icon Container with enhanced styling */}
                 <Box
+                  className="amenity-icon"
                   sx={{
-                    mb: 2.5,
+                    mb: 2,
                     p: 2,
                     background: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)',
                     borderRadius: '12px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    width: { xs: '64px', md: '80px' },
-                    height: { xs: '64px', md: '80px' },
-                    transition: 'all 0.24s ease',
+                    width: { xs: '60px', md: '70px' },
+                    height: { xs: '60px', md: '70px' },
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 6px 20px rgba(59, 130, 246, 0.15)',
+                    border: '2px solid rgba(59, 130, 246, 0.1)',
                   }}
                 >
                   {amenity.icon}
@@ -164,16 +171,25 @@ const Amenities: React.FC = () => {
                   id={`amenity-title-${amenity.id}`}
                   level="title-md"
                   sx={{
-                    color: '#0f172a',
+                    color: '#1e293b',
                     fontWeight: 700,
-                    mb: 1,
-                    fontSize: { xs: '15px', md: '16px' },
+                    mb: 1.5,
+                    fontSize: { xs: '16px', md: '17px' },
+                    letterSpacing: '-0.01em',
                   }}
                 >
                   {amenity.title}
                 </Typography>
 
-                <Typography level="body-sm" sx={{ color: '#64748b', lineHeight: 1.6, fontSize: '14px' }}>
+                <Typography 
+                  level="body-sm" 
+                  sx={{ 
+                    color: '#64748b', 
+                    lineHeight: 1.6, 
+                    fontSize: '14px',
+                    px: 0.5,
+                  }}
+                >
                   {amenity.description}
                 </Typography>
               </Card>
