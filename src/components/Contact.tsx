@@ -168,12 +168,14 @@ const Contact: React.FC = () => {
               </Card>
 
               <Card
+                onClick={() => window.open('https://www.google.com/maps/place/Executive+Inn+And+Suites+Baker/@30.5802409,-91.1719429,17z/data=!3m1!4b1!4m9!3m8!1s0x86269ef9945299e9:0x4f2066f160bd0eca!5m2!4m1!1i2!8m2!3d30.5802409!4d-91.169368!16s%2Fg%2F1tfkwp32?entry=ttu&g_ep=EgoyMDI2MDExOS4wIKXMDSoASAFQAw%3D%3D', '_blank')}
                 sx={{
                   p: 4,
                   background: "white",
                   border: "none",
                   boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
                   transition: "all 0.3s ease",
+                  cursor: "pointer",
                   "&:hover": {
                     transform: "translateY(-4px)",
                     boxShadow: "0 12px 30px rgba(30, 58, 138, 0.15)",
