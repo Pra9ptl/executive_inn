@@ -13,6 +13,7 @@ import {
   ListItemDecorator,
 } from '@mui/joy';
 import { BedtimeOutlined, Groups, Wifi } from '@mui/icons-material';
+import BookingModal from './BookingModal';
 
 interface RoomType {
   id: number;
@@ -189,7 +190,9 @@ const RoomTypes: React.FC = () => {
                   ))}
                 </List>
 
-                <Button
+                <BookingModal
+                  preselectedRoom={room.name.toLowerCase().replace(' ', '')}
+                  variant="solid"
                   sx={{
                     width: '100%',
                     background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
@@ -205,7 +208,7 @@ const RoomTypes: React.FC = () => {
                   }}
                 >
                   Book Now
-                </Button>
+                </BookingModal>
               </CardContent>
             </Card>
           ))}

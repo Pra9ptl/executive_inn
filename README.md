@@ -160,6 +160,33 @@ This creates an optimized production build in the `build/` folder that can be de
 - GitHub Pages
 - Any static hosting service
 
+## ✉️ Email Notifications (EmailJS)
+
+The booking form sends a notification email using EmailJS.
+
+- Create an EmailJS account and set up:
+  - Service ID
+  - Email template (add fields below)
+  - Public key
+- Add these to `.env.local` in the project root (see `.env.example`):
+
+```
+REACT_APP_EMAILJS_SERVICE_ID=your_service_id
+REACT_APP_EMAILJS_BOOKING_TEMPLATE_ID=your_template_id
+REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+Suggested template variables used by the app:
+- `subject`
+- `check_in`, `check_out`, `nights`
+- `room_type`, `guests`, `smoking_preference`
+- `first_name`, `last_name`, `guest_email`, `guest_phone`
+- `special_requests`
+- `base_amount`, `extra_guests_amount`, `subtotal`, `tax`, `total`, `currency`
+- `submitted_at`
+
+Security note: card details are intentionally NOT emailed.
+
 ## 📄 License
 
 This project is private and proprietary to Executive Inn and Suites Baker.

@@ -58,7 +58,7 @@ const amenities: Amenity[] = [
 const Amenities: React.FC = () => {
   return (
     <Box id="amenities" component="section" aria-labelledby="amenities-heading" sx={{ py: { xs: 6, md: 10 }, background: 'linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%)' }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ px: { xs: 1.5, md: 2 } }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 6 }}>
           <Typography
             id="amenities-heading"
@@ -103,7 +103,7 @@ const Amenities: React.FC = () => {
           </Typography>
         </Box>
 
-        <Grid container spacing={{ xs: 2, md: 2.5 }} sx={{ justifyContent: 'center' }}>
+        <Grid container spacing={{ xs: 1.75, md: 2.5 }} sx={{ justifyContent: 'center' }}>
           {amenities.map((amenity) => (
             <Grid key={amenity.id} xs={6} sm={4} md={3} lg={2}>
               <Card
@@ -116,7 +116,7 @@ const Amenities: React.FC = () => {
                   flexDirection: 'column',
                   alignItems: 'center',
                   textAlign: 'center',
-                  p: { xs: 2, md: 2.5 },
+                  p: { xs: 1.75, md: 2.5 },
                   position: 'relative',
                   overflow: 'hidden',
                   transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',

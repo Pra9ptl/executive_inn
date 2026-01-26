@@ -14,7 +14,7 @@ function App() {
   return (
     <CssVarsProvider>
       <CssBaseline />
-      <Box sx={{ background: '#ffffff' }}>
+      <Box sx={{ background: '#ffffff', overflowX: 'hidden' }}>
         <Navigation />
         <Header />
         <AboutUs />

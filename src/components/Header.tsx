@@ -5,6 +5,7 @@ import img1 from '../assets/executive-inn-baker-la.webp';
 import img2 from '../assets/executive-inn-baker.webp';
 import img3 from '../assets/exterior.webp';
 import img4 from '../assets/lobby.webp';
+import BookingModal from './BookingModal';
 
 const Header: React.FC = () => {
   const carouselImages = [img1, img2, img3, img4];
@@ -31,7 +32,9 @@ const Header: React.FC = () => {
       sx={{
         position: 'relative',
         overflow: 'hidden',
-        height: 'calc(100vh - 70px)',
+        height: { xs: '85vh', md: 'calc(100vh - 70px)' },
+        minHeight: { xs: '620px', md: '680px' },
+        maxHeight: '900px',
         mb: 0,
       }}
     >
@@ -147,9 +150,20 @@ const Header: React.FC = () => {
       </Stack>
 
       {/* Content Overlay */}
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 5, height: '100%', display: 'flex', alignItems: 'center' }}>
-        <Box sx={{ maxWidth: '780px' }}>
-          <Stack spacing={4}>
+      <Container
+        maxWidth="lg"
+        sx={{
+          position: 'relative',
+          zIndex: 5,
+          height: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          px: { xs: 1.5, md: 2 },
+          py: { xs: 3, md: 0 },
+        }}
+      >
+        <Box sx={{ maxWidth: { xs: '100%', md: '780px' }, mt: { xs: 2, md: 0 } }}>
+          <Stack spacing={{ xs: 3, md: 4 }}>
             <Stack direction="row" alignItems="center" spacing={2}>
               <Box sx={{ background: 'rgba(255,255,255,0.06)', borderRadius: '10px', p: 1.5 }}>
                 <Hotel sx={{ fontSize: 44, color: '#fbbf24' }} />
@@ -172,21 +186,44 @@ const Header: React.FC = () => {
               </Box>
             </Stack>
             
-            <Typography 
-              level="body-lg" 
-              sx={{ 
-                fontSize: '18px', 
-                maxWidth: '650px', 
+            <Typography
+              level="body-lg"
+              sx={{
+                fontSize: { xs: '16px', md: '18px' },
+                maxWidth: '680px',
                 lineHeight: 1.7,
                 color: 'white',
                 fontWeight: '500',
-                textShadow: '0 1px 4px rgba(0, 0, 0, 0.2)',
+                textShadow: '0 1px 4px rgba(0, 0, 0, 0.25)',
               }}
             >
               Experience comfort and elegance in the heart of Baker, Louisiana. Premium accommodations with exceptional service and warm hospitality.
             </Typography>
+
+            <Box sx={{ mt: 1, textAlign: { xs: 'center', md: 'left' } }}>
+              <BookingModal
+                variant="solid"
+                size="lg"
+                sx={{
+                  px: 4,
+                  py: 2,
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+                  border: 'none',
+                  borderRadius: '12px',
+                  boxShadow: '0 8px 25px rgba(251, 191, 36, 0.3)',
+                  '&:hover': {
+                    background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                    boxShadow: '0 12px 35px rgba(251, 191, 36, 0.4)',
+                    transform: 'translateY(-2px)',
+                  },
+                  transition: 'all 0.3s ease',
+                }}
+              />
+            </Box>
             
-            <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} sx={{ mt: 2 }}>
+            <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2, md: 4 }} sx={{ mt: 2 }}>
               <Stack 
                 direction="row" 
                 alignItems="center" 

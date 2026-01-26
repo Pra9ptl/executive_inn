@@ -44,6 +44,11 @@ body {
   color: #1e293b;
 }
 
+.full-width-bg {
+  width: 100%;
+  overflow: hidden;
+}
+
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 10px;

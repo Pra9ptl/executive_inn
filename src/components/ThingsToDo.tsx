@@ -41,7 +41,7 @@ const parks: string[] = [
 const ThingsToDo: React.FC = () => {
   return (
     <Box id="things-to-do" component="section" sx={{ py: { xs: 6, md: 10 }, background: 'linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%)' }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ px: { xs: 1.5, md: 2 } }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 6 }}>
           <Typography
             level="h2"
@@ -114,7 +114,7 @@ const ThingsToDo: React.FC = () => {
         </Typography>
 
         <Box sx={{ mb: 6 }}>
-          <Grid container spacing={{ xs: 1.5, md: 2 }}>
+          <Grid container spacing={{ xs: 1.25, md: 2 }}>
             {attractions.map((attraction) => (
               <Grid key={attraction.id} xs={12} sm={6} md={4} lg={3}>
                 <Box
@@ -204,7 +204,7 @@ const ThingsToDo: React.FC = () => {
               Local Parks & Recreation Areas
             </Typography>
           </Stack>
-          <Grid container spacing={2}>
+          <Grid container spacing={{ xs: 1.5, md: 2 }}>
             {parks.map((park, index) => (
               <Grid key={index} xs={12} sm={6} md={4}>
                 <Stack direction="row" spacing={1.5} alignItems="center">

@@ -22,8 +22,8 @@ const Footer: React.FC = () => {
         borderTop: '1px solid rgba(255,255,255,0.08)',
       }}
     >
-      <Container maxWidth="lg">
-        <Grid container spacing={4} sx={{ mb: 3 }}>
+      <Container maxWidth="lg" sx={{ px: { xs: 1.5, md: 2 } }}>
+        <Grid container spacing={{ xs: 3, md: 4 }} sx={{ mb: 3 }}>
           {/* Brand + Contact */}
           <Grid xs={12} sm={6} md={4}>
             <Stack spacing={2}>

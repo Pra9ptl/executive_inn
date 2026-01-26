@@ -104,7 +104,7 @@ const PhotoGallery: React.FC = () => {
 
   return (
     <Box id="gallery" sx={{ py: { xs: 8, md: 12 }, background: 'linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%)' }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ px: { xs: 1.5, md: 2 } }}>
         <Stack spacing={2} sx={{ mb: 10 }}>
           <Typography
             level="h2"
@@ -136,12 +136,12 @@ const PhotoGallery: React.FC = () => {
         {/* Category Filter */}
         <Stack
           direction="row"
-          spacing={1.5}
+          spacing={1.25}
           sx={{
             mb: 10,
             justifyContent: 'center',
             flexWrap: 'wrap',
-            gap: 1.5,
+            gap: 1.25,
           }}
         >
           {categories.map((category) => (
@@ -188,7 +188,7 @@ const PhotoGallery: React.FC = () => {
               md: 'repeat(3, 1fr)',
               lg: 'repeat(3, 1fr)',
             },
-            gap: { xs: 3, md: 4 },
+            gap: { xs: 2.25, md: 3.5 },
             mb: 4,
           }}
         >

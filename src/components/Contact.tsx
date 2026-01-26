@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
     const serviceId =
       process.env.REACT_APP_EMAILJS_SERVICE_ID || "REPLACE_WITH_SERVICE_ID";
     const templateId =
-      process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "REPLACE_WITH_TEMPLATE_ID";
+      process.env.REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID || "REPLACE_WITH_TEMPLATE_ID";
     const publicKey =
       process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "REPLACE_WITH_PUBLIC_KEY";
 

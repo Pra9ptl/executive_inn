@@ -19,5 +19,12 @@ html {
 
 * {
   box-sizing: border-box;
+  user-select: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
