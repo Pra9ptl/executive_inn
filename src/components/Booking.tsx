@@ -1785,8 +1785,8 @@ const Booking: React.FC<BookingProps> = ({
               borderRadius: "12px",
               border: "1px solid #fef3c7",
               backgroundColor: "#fffbeb",
+              width: "100%",
               maxWidth: { xs: "100%", md: "960px" },
-              minWidth: "960px",
               mt: 2,
             }}
           >
@@ -1812,7 +1812,7 @@ const Booking: React.FC<BookingProps> = ({
                 >
                   •
                 </Typography>
-                <Typography level="body-xs" sx={{ color: "#92400e" }}>
+                <Typography level="body-xs" sx={{ color: "#92400e", textAlign: "left" }}>
                   Cancellations are allowed <strong>up to 24 hours</strong>{" "}
                   before your booking date
                 </Typography>
@@ -1824,7 +1824,7 @@ const Booking: React.FC<BookingProps> = ({
                 >
                   •
                 </Typography>
-                <Typography level="body-xs" sx={{ color: "#92400e" }}>
+                <Typography level="body-xs" sx={{ color: "#92400e", textAlign: "left" }}>
                   Available only during{" "}
                   <strong>business hours (9 AM - 6 PM)</strong>
                 </Typography>
@@ -1836,7 +1836,7 @@ const Booking: React.FC<BookingProps> = ({
                 >
                   •
                 </Typography>
-                <Typography level="body-xs" sx={{ color: "#92400e" }}>
+                <Typography level="body-xs" sx={{ color: "#92400e", textAlign: "left" }}>
                   Contact us:{" "}
                   <Typography
                     component="span"
