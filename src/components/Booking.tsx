@@ -751,27 +751,7 @@ const Booking: React.FC<BookingProps> = ({
                   >
                     🛌 Room Preference
                   </Chip>
-                  <Typography
-                    level="body-sm"
-                    sx={{ color: "#475569", fontWeight: 600 }}
-                  >
-                    Choose your comfort
-                  </Typography>
                 </Box>
-                <Chip
-                  variant="soft"
-                  color={
-                    bookingData.smokingPreference === "non-smoking"
-                      ? "success"
-                      : "warning"
-                  }
-                  size="sm"
-                  sx={{ fontWeight: 700 }}
-                >
-                  {bookingData.smokingPreference === "non-smoking"
-                    ? "🏠 Non-Smoking"
-                    : "🚬 Smoking"}
-                </Chip>
               </Stack>
 
               <Grid container spacing={1.5}>
