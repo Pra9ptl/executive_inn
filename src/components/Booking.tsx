@@ -5,7 +5,7 @@ import {
   Check,
   CheckCircle,
   Email,
-  Phone
+  Phone,
 } from "@mui/icons-material";
 import {
   Alert,
@@ -26,9 +26,10 @@ import {
   Select,
   Stack,
   Textarea,
-  Typography
+  Typography,
 } from "@mui/joy";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface BookingData {
   checkIn: string;
@@ -61,6 +62,7 @@ const Booking: React.FC<BookingProps> = ({
   onClose,
   preselectedRoom = "",
 }) => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 4;
 
@@ -140,7 +142,8 @@ const Booking: React.FC<BookingProps> = ({
       const missingVars = [];
       if (!serviceId) missingVars.push("REACT_APP_EMAILJS_SERVICE_ID");
       if (!publicKey) missingVars.push("REACT_APP_EMAILJS_PUBLIC_KEY");
-      if (!templateId) missingVars.push("REACT_APP_EMAILJS_BOOKING_TEMPLATE_ID");
+      if (!templateId)
+        missingVars.push("REACT_APP_EMAILJS_BOOKING_TEMPLATE_ID");
       const errorMsg = `EmailJS configuration incomplete. Missing: ${missingVars.join(", ")}`;
       console.error(errorMsg);
       throw new Error(errorMsg);
@@ -165,7 +168,7 @@ const Booking: React.FC<BookingProps> = ({
 
       const templateParams = {
         // Routing
-        to_email: 'exeinnbaker@gmail.com',
+        to_email: "exeinnbaker@gmail.com",
         from_email: booking.email,
 
         // Stay Details
@@ -433,7 +436,7 @@ const Booking: React.FC<BookingProps> = ({
         setTimeout(() => {
           setIsSubmitted(false);
           setCurrentStep(1); // Reset to first step
-              setShowBillingErrors(false);
+          setShowBillingErrors(false);
           onClose();
           // Reset form
           setBookingData({
@@ -1260,7 +1263,8 @@ const Booking: React.FC<BookingProps> = ({
                     <Input
                       required
                       error={
-                        (showBillingErrors || bookingData.cardName.length > 0) &&
+                        (showBillingErrors ||
+                          bookingData.cardName.length > 0) &&
                         !bookingData.cardName.trim()
                       }
                       value={bookingData.cardName}
@@ -1287,13 +1291,23 @@ const Booking: React.FC<BookingProps> = ({
                     <Input
                       required
                       error={(() => {
-                        const digits = bookingData.cardNumber.replace(/\D/g, "");
-                        return (showBillingErrors || digits.length > 0) && digits.length !== 16;
+                        const digits = bookingData.cardNumber.replace(
+                          /\D/g,
+                          "",
+                        );
+                        return (
+                          (showBillingErrors || digits.length > 0) &&
+                          digits.length !== 16
+                        );
                       })()}
                       value={bookingData.cardNumber}
                       onChange={(e) => {
-                        const digits = e.target.value.replace(/\D/g, "").slice(0, 16);
-                        const formatted = digits.replace(/(\d{4})(?=\d)/g, "$1 ").trim();
+                        const digits = e.target.value
+                          .replace(/\D/g, "")
+                          .slice(0, 16);
+                        const formatted = digits
+                          .replace(/(\d{4})(?=\d)/g, "$1 ")
+                          .trim();
                         handleInputChange("cardNumber", formatted);
                       }}
                       placeholder="1234 5678 9012 3456"
@@ -1325,7 +1339,10 @@ const Booking: React.FC<BookingProps> = ({
                       required
                       error={(() => {
                         const exp = bookingData.cardExpiry.trim();
-                        return (showBillingErrors || exp.length > 0) && !isValidExpiry(exp);
+                        return (
+                          (showBillingErrors || exp.length > 0) &&
+                          !isValidExpiry(exp)
+                        );
                       })()}
                       value={bookingData.cardExpiry}
                       onChange={(e) => {
@@ -1363,7 +1380,10 @@ const Booking: React.FC<BookingProps> = ({
                       required
                       error={(() => {
                         const cvv = bookingData.cardCvv.trim();
-                        return (showBillingErrors || cvv.length > 0) && cvv.length !== 3;
+                        return (
+                          (showBillingErrors || cvv.length > 0) &&
+                          cvv.length !== 3
+                        );
                       })()}
                       value={bookingData.cardCvv}
                       onChange={(e) => {
@@ -1401,11 +1421,16 @@ const Booking: React.FC<BookingProps> = ({
                       required
                       error={(() => {
                         const zip = bookingData.zipCode.trim();
-                        return (showBillingErrors || zip.length > 0) && zip.length !== 5;
+                        return (
+                          (showBillingErrors || zip.length > 0) &&
+                          zip.length !== 5
+                        );
                       })()}
                       value={bookingData.zipCode}
                       onChange={(e) => {
-                        const value = e.target.value.replace(/\D/g, "").slice(0, 5);
+                        const value = e.target.value
+                          .replace(/\D/g, "")
+                          .slice(0, 5);
                         handleInputChange("zipCode", value);
                       }}
                       placeholder="12345"
@@ -1569,7 +1594,14 @@ const Booking: React.FC<BookingProps> = ({
               "&:hover": { bgcolor: "rgba(0, 0, 0, 0.08)" },
             }}
           />
-          <Box sx={{ p: 0, display: "flex", flexDirection: "column", height: "100%" }}>
+          <Box
+            sx={{
+              p: 0,
+              display: "flex",
+              flexDirection: "column",
+              height: "100%",
+            }}
+          >
             <CustomStepper />
             <Box
               sx={{
@@ -1712,7 +1744,16 @@ const Booking: React.FC<BookingProps> = ({
       }}
     >
       <Container maxWidth="lg" sx={{ px: { xs: 1.25, sm: 1.75, md: 2 } }}>
-        <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+            justifyContent: "center",
+            mb: { xs: 4, md: 6 },
+          }}
+        >
           <Typography
             level="h1"
             sx={{
@@ -1736,6 +1777,119 @@ const Booking: React.FC<BookingProps> = ({
             Reserve your perfect room at Executive Inn and Suites. Choose your
             dates, room type, and preferences below.
           </Typography>
+
+          {/* Cancellation Policy */}
+          <Box
+            sx={{
+              p: { xs: 1.5, sm: 2 },
+              borderRadius: "12px",
+              border: "1px solid #fef3c7",
+              backgroundColor: "#fffbeb",
+              maxWidth: { xs: "100%", md: "960px" },
+              minWidth: "960px",
+              mt: 2,
+            }}
+          >
+            <Box sx={{ mb: 1 }}>
+              <Typography
+                level="body-sm"
+                sx={{
+                  fontWeight: 700,
+                  color: "#92400e",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.75,
+                }}
+              >
+                📋 Cancellation Policy
+              </Typography>
+            </Box>
+            <Stack spacing={1}>
+              <Box sx={{ display: "flex", gap: 1 }}>
+                <Typography
+                  level="body-xs"
+                  sx={{ color: "#b45309", fontWeight: 600, minWidth: "20px" }}
+                >
+                  •
+                </Typography>
+                <Typography level="body-xs" sx={{ color: "#92400e" }}>
+                  Cancellations are allowed <strong>up to 24 hours</strong>{" "}
+                  before your booking date
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", gap: 1 }}>
+                <Typography
+                  level="body-xs"
+                  sx={{ color: "#b45309", fontWeight: 600, minWidth: "20px" }}
+                >
+                  •
+                </Typography>
+                <Typography level="body-xs" sx={{ color: "#92400e" }}>
+                  Available only during{" "}
+                  <strong>business hours (9 AM - 6 PM)</strong>
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", gap: 1 }}>
+                <Typography
+                  level="body-xs"
+                  sx={{ color: "#b45309", fontWeight: 600, minWidth: "20px" }}
+                >
+                  •
+                </Typography>
+                <Typography level="body-xs" sx={{ color: "#92400e" }}>
+                  Contact us:{" "}
+                  <Typography
+                    component="span"
+                    level="body-xs"
+                    sx={{
+                      fontWeight: 600,
+                      color: "#b45309",
+                      cursor: "pointer",
+                      textDecoration: "underline",
+                      "&:hover": {
+                        color: "#92400e",
+                      },
+                    }}
+                    onClick={() => navigate("/#contact")}
+                  >
+                    Get In Touch
+                  </Typography>{" "}
+                  or{" "}
+                  <Typography
+                    component="span"
+                    level="body-xs"
+                    sx={{ fontWeight: 600 }}
+                  >
+                    <a
+                      href="mailto:exeinnbaker@gmail.com"
+                      style={{
+                        color: "#b45309",
+                        textDecoration: "underline",
+                      }}
+                    >
+                      exeinnbaker@gmail.com
+                    </a>
+                  </Typography>{" "}
+                  or{" "}
+                  <Typography
+                    component="span"
+                    level="body-xs"
+                    sx={{ fontWeight: 600 }}
+                  >
+                    <a
+                      href="tel:225-771-1123"
+                      style={{
+                        color: "#b45309",
+                        textDecoration: "underline",
+                      }}
+                    >
+                      225-771-1123
+                    </a>
+                  </Typography>
+                </Typography>
+              </Box>
+            </Stack>
+          </Box>
         </Box>
 
         <Card

@@ -17,6 +17,7 @@ import {
   LocationOn,
   Send,
   CheckCircle,
+  Info,
 } from "@mui/icons-material";
 
 const Contact: React.FC = () => {
@@ -401,6 +402,147 @@ const Contact: React.FC = () => {
             </Card>
           </Grid>
         </Grid>
+
+        {/* Cancellation Policy Section */}
+        <Box sx={{ mt: 8 }}>
+          <Card
+            sx={{
+              p: 4,
+              background: "linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)",
+              border: "2px solid #fcd34d",
+              boxShadow: "0 4px 20px rgba(217, 119, 6, 0.1)",
+            }}
+          >
+            <Stack spacing={3}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+                <Info
+                  sx={{
+                    color: "#b45309",
+                    fontSize: 32,
+                  }}
+                />
+                <Typography
+                  level="h3"
+                  sx={{
+                    color: "#92400e",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Cancellation Policy
+                </Typography>
+              </Box>
+
+              <Grid container spacing={2}>
+                <Grid xs={12} md={6}>
+                  <Stack spacing={2}>
+                    <Box>
+                      <Typography
+                        level="title-md"
+                        sx={{
+                          color: "#b45309",
+                          fontWeight: "bold",
+                          mb: 1,
+                        }}
+                      >
+                        📋 Policy Details
+                      </Typography>
+                      <Stack spacing={1.5}>
+                        <Box sx={{ display: "flex", gap: 1 }}>
+                          <Typography sx={{ color: "#b45309", fontWeight: 700 }}>
+                            •
+                          </Typography>
+                          <Typography level="body-sm" sx={{ color: "#92400e" }}>
+                            Cancellations are allowed <strong>up to 24 hours</strong> before your booking date
+                          </Typography>
+                        </Box>
+                        <Box sx={{ display: "flex", gap: 1 }}>
+                          <Typography sx={{ color: "#b45309", fontWeight: 700 }}>
+                            •
+                          </Typography>
+                          <Typography level="body-sm" sx={{ color: "#92400e" }}>
+                            Available only during <strong>business hours (9 AM - 6 PM)</strong>
+                          </Typography>
+                        </Box>
+                        <Box sx={{ display: "flex", gap: 1 }}>
+                          <Typography sx={{ color: "#b45309", fontWeight: 700 }}>
+                            •
+                          </Typography>
+                          <Typography level="body-sm" sx={{ color: "#92400e" }}>
+                            Refunds will be processed within 5-7 business days
+                          </Typography>
+                        </Box>
+                      </Stack>
+                    </Box>
+                  </Stack>
+                </Grid>
+
+                <Grid xs={12} md={6}>
+                  <Stack spacing={2}>
+                    <Box>
+                      <Typography
+                        level="title-md"
+                        sx={{
+                          color: "#b45309",
+                          fontWeight: "bold",
+                          mb: 1,
+                        }}
+                      >
+                        📞 How to Cancel
+                      </Typography>
+                      <Stack spacing={1.5}>
+                        <Box>
+                          <Typography level="body-sm" sx={{ color: "#92400e", mb: 0.5 }}>
+                            Email Us:
+                          </Typography>
+                          <Typography
+                            component="a"
+                            href="mailto:exeinnbaker@gmail.com"
+                            level="body-sm"
+                            sx={{
+                              color: "#2563eb",
+                              textDecoration: "none",
+                              fontWeight: "600",
+                              "&:hover": {
+                                textDecoration: "underline",
+                              },
+                            }}
+                          >
+                            exeinnbaker@gmail.com
+                          </Typography>
+                        </Box>
+
+                        <Box>
+                          <Typography level="body-sm" sx={{ color: "#92400e", mb: 0.5 }}>
+                            Call Us:
+                          </Typography>
+                          <Typography
+                            component="a"
+                            href="tel:225-771-1123"
+                            level="body-sm"
+                            sx={{
+                              color: "#2563eb",
+                              textDecoration: "none",
+                              fontWeight: "600",
+                              "&:hover": {
+                                textDecoration: "underline",
+                              },
+                            }}
+                          >
+                            +1 (225) 771-1123
+                          </Typography>
+                        </Box>
+
+                        <Typography level="body-xs" sx={{ color: "#92400e", mt: 1 }}>
+                          <strong>Hours:</strong> 9 AM - 6 PM (Monday - Sunday)
+                        </Typography>
+                      </Stack>
+                    </Box>
+                  </Stack>
+                </Grid>
+              </Grid>
+            </Stack>
+          </Card>
+        </Box>
       </Container>
     </Box>
   );
