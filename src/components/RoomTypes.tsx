@@ -1,19 +1,19 @@
-import React from 'react';
+import { Groups } from '@mui/icons-material';
 import {
   Box,
-  Container,
-  Typography,
+  Button,
   Card,
   CardContent,
   CardCover,
-  Stack,
-  Button,
+  Container,
   List,
   ListItem,
   ListItemDecorator,
+  Stack,
+  Typography,
 } from '@mui/joy';
-import { BedtimeOutlined, Groups, Wifi } from '@mui/icons-material';
-import BookingModal from './BookingModal';
+import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 
 interface RoomType {
   id: number;
@@ -190,8 +190,9 @@ const RoomTypes: React.FC = () => {
                   ))}
                 </List>
 
-                <BookingModal
-                  preselectedRoom={room.name.toLowerCase().replace(' ', '')}
+                <Button
+                  component={RouterLink}
+                  to="/book"
                   variant="solid"
                   sx={{
                     width: '100%',
@@ -201,6 +202,7 @@ const RoomTypes: React.FC = () => {
                     fontSize: '15px',
                     py: 1.5,
                     transition: 'all 0.3s ease',
+                    textDecoration: 'none',
                     '&:hover': {
                       transform: 'translateY(-2px)',
                       boxShadow: '0 8px 20px rgba(30, 58, 138, 0.3)',
@@ -208,7 +210,7 @@ const RoomTypes: React.FC = () => {
                   }}
                 >
                   Book Now
-                </BookingModal>
+                </Button>
               </CardContent>
             </Card>
           ))}

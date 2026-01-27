@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Container, Button, Stack, Drawer, Divider, Typography } from '@mui/joy';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/Executive-Suites-Baker-Logo.png';
-import BookingModal from './BookingModal';
 
 interface NavItem {
   label: string;
@@ -16,69 +16,50 @@ const navItems: NavItem[] = [
   { label: 'Amenities', href: '#amenities' },
   { label: 'Things To Do', href: '#things-to-do' },
   { label: 'Contact', href: '#contact' },
-  { label: 'Book Now', href: '#booking' },
+  { label: 'Book Now', href: '/book' },
 ];
 
 const Navigation: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToId = (targetId: string) => {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const navHeight = 70;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   const renderNavButtons = (onItemClick?: () => void) =>
     navItems.map((item) => {
-      if (item.label === 'Book Now') {
-        return (
-          <BookingModal
-            key={item.label}
-            triggerText={item.label}
-            variant="plain"
-            sx={{
-              px: 3,
-              py: 1.5,
-              fontSize: '14px',
-              fontWeight: '600',
-              background: 'transparent',
-              border: 'none',
-              borderRadius: '8px',
-              backgroundImage: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              color: 'transparent',
-              transition: 'all 0.3s ease',
-              textTransform: 'none',
-              justifyContent: 'flex-start',
-              '&:hover': {
-                backgroundImage: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-                transform: 'translateY(-1px)',
-              },
-            }}
-          />
-        );
-      }
-
       return (
         <Button
           key={item.label}
-          component="a"
-          href={item.href}
+          component={item.label === 'Book Now' ? RouterLink : 'button'}
+          to={item.label === 'Book Now' ? item.href : undefined}
           variant="plain"
-          onClick={(e) => {
+          onClick={(e: React.MouseEvent<HTMLElement>) => {
+            if (item.label === 'Book Now') {
+              setMobileOpen(false);
+              return;
+            }
+
             e.preventDefault();
+            const targetId = item.href.substring(1);
             setMobileOpen(false);
 
-            if (item.label === 'Home') {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (location.pathname !== '/') {
+              navigate('/', { state: { targetId } });
             } else {
-              const targetId = item.href.substring(1);
-              const targetElement = document.getElementById(targetId);
-              if (targetElement) {
-                const navHeight = 70;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-
-                window.scrollTo({
-                  top: offsetPosition,
-                  behavior: 'smooth',
-                });
-              }
+              scrollToId(targetId);
             }
 
             onItemClick?.();
@@ -93,6 +74,7 @@ const Navigation: React.FC = () => {
             transition: 'all 0.2s ease',
             textTransform: 'none',
             justifyContent: 'flex-start',
+            textDecoration: 'none',
             '&:hover': {
               background: 'transparent',
               color: '#1e3a8a',
@@ -111,9 +93,11 @@ const Navigation: React.FC = () => {
         background: 'rgba(255,255,255,0.96)',
         backdropFilter: 'blur(10px)',
         borderBottom: '1px solid #f0f0f0',
-        position: 'sticky',
+        position: 'fixed',
         top: 0,
-        zIndex: 100,
+        left: 0,
+        right: 0,
+        zIndex: 1200,
         boxShadow: '0 8px 24px rgba(0,0,0,0.05)',
       }}
     >

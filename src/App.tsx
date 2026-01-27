@@ -1,29 +1,26 @@
 import React from 'react';
 import { Box, CssVarsProvider } from '@mui/joy';
 import CssBaseline from '@mui/joy/CssBaseline';
-import Header from './components/Header';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import PhotoGallery from './components/PhotoGallery';
-import Amenities from './components/Amenities';
-import ThingsToDo from './components/ThingsToDo';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
-import AboutUs from './components/AboutUs';
+import Home from './pages/Home';
+import BookingPage from './pages/BookingPage';
 
 function App() {
   return (
     <CssVarsProvider>
       <CssBaseline />
-      <Box sx={{ background: '#ffffff', overflowX: 'hidden' }}>
-        <Navigation />
-        <Header />
-        <AboutUs />
-        <PhotoGallery />
-        <Amenities />
-        <ThingsToDo />
-        <Contact />
-        <Footer />
-      </Box>
+      <BrowserRouter>
+        <Box sx={{ background: '#ffffff', overflowX: 'hidden', pt: { xs: '72px', md: '76px' } }}>
+          <Navigation />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/book" element={<BookingPage />} />
+          </Routes>
+          <Footer />
+        </Box>
+      </BrowserRouter>
     </CssVarsProvider>
   );
 }

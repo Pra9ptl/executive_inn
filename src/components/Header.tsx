@@ -1,11 +1,11 @@
 import { ChevronLeft, ChevronRight, Hotel, LocationOn, Phone } from '@mui/icons-material';
-import { Box, Container, IconButton, Stack, Typography } from '@mui/joy';
+import { Box, Container, IconButton, Stack, Typography, Button } from '@mui/joy';
 import React, { useEffect, useState } from 'react';
 import img1 from '../assets/executive-inn-baker-la.webp';
 import img2 from '../assets/executive-inn-baker.webp';
 import img3 from '../assets/exterior.webp';
 import img4 from '../assets/lobby.webp';
-import BookingModal from './BookingModal';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const carouselImages = [img1, img2, img3, img4];
@@ -201,7 +201,9 @@ const Header: React.FC = () => {
             </Typography>
 
             <Box sx={{ mt: 1, textAlign: { xs: 'center', md: 'left' } }}>
-              <BookingModal
+              <Button
+                component={RouterLink}
+                to="/book"
                 variant="solid"
                 size="lg"
                 sx={{
@@ -213,6 +215,7 @@ const Header: React.FC = () => {
                   border: 'none',
                   borderRadius: '12px',
                   boxShadow: '0 8px 25px rgba(251, 191, 36, 0.3)',
+                  textDecoration: 'none',
                   '&:hover': {
                     background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
                     boxShadow: '0 12px 35px rgba(251, 191, 36, 0.4)',
@@ -220,7 +223,9 @@ const Header: React.FC = () => {
                   },
                   transition: 'all 0.3s ease',
                 }}
-              />
+              >
+                Book Now
+              </Button>
             </Box>
             
             <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2, md: 4 }} sx={{ mt: 2 }}>
